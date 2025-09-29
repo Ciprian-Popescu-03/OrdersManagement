@@ -34,16 +34,6 @@ public class AbstractDAO<T> {
     }
 
     /**
-     * Creates a SELECT query string to find a record by a given field.
-     *
-     * @param field the field name to filter by
-     * @return the SQL SELECT query string
-     */
-    private String createSelectQuery(String field) {
-        return "SELECT * FROM " + getTableName() + " WHERE " + toSnakeCase(field) + " = ?";
-    }
-
-    /**
      * Retrieves all records of type T from the database.
      *
      * @return a list of all T objects from the database
@@ -83,40 +73,6 @@ public class AbstractDAO<T> {
         return list;
     }
 
-    /**
-     * Creates a list of objects from a ResultSet by mapping each row to an instance of T.
-     *
-     * @param resultSet the ResultSet to convert
-     * @return a list of T objects
-     */
-    private List<T> createObjects(ResultSet resultSet) {
-        List<T> list = new ArrayList<>();
-        Constructor<?>[] ctors = type.getDeclaredConstructors();
-        Constructor<?> ctor = null;
-        for (Constructor<?> c : ctors) {
-            if (c.getGenericParameterTypes().length == 0) {
-                ctor = c;
-                break;
-            }
-        }
-        try {
-            while (resultSet.next()) {
-                ctor.setAccessible(true);
-                T instance = (T) ctor.newInstance();
-                for (Field field : type.getDeclaredFields()) {
-                    String fieldName = field.getName();
-                    Object value = resultSet.getObject(toSnakeCase(fieldName));
-                    PropertyDescriptor propertyDescriptor = new PropertyDescriptor(fieldName, type);
-                    Method method = propertyDescriptor.getWriteMethod();
-                    method.invoke(instance, value);
-                }
-                list.add(instance);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
 
     /**
      * Inserts a new record of type T into the database.

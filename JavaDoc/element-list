@@ -1,0 +1,7 @@
+unnamed package
+com.ordersmanagement
+com.ordersmanagement.Business_Logic
+com.ordersmanagement.Connection
+com.ordersmanagement.DataAccessLayer
+com.ordersmanagement.Model
+com.ordersmanagement.Presentation

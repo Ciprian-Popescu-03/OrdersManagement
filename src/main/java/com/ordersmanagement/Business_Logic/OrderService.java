@@ -17,35 +17,6 @@ public class OrderService {
     private ProductDAO productDAO = new ProductDAO();
 
     /**
-     * Adds a new order to the database.
-     *
-     * @param order The Order object to be added.
-     * @return true if the order was inserted successfully, false otherwise.
-     */
-    public boolean addOrder(Order order) {
-        return orderDAO.insert(order) != null;
-    }
-
-    /**
-     * Deletes an existing order from the database.
-     *
-     * @param order The Order object to be deleted.
-     * @return true if the order was deleted successfully, false otherwise.
-     */
-    public boolean deleteOrder(Order order) {
-        return orderDAO.delete(order) != null;
-    }
-
-    /**
-     * Retrieves all orders from the database.
-     *
-     * @return A List of all Order objects.
-     */
-    public List<Order> viewAllOrders() {
-        return orderDAO.findAll();
-    }
-
-    /**
      * Creates an order with multiple order items and updates product stock in a single transaction.
      * If any operation fails, the entire transaction is rolled back.
      *
