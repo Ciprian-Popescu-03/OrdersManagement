@@ -1,7 +1,7 @@
 # Orders Management App 📦
 
 Welcome to the **Orders Management App**, a desktop application developed with **Java Swing**.
-Its purpose is to manage client orders for a warehouse, including product, client, and order management, with all data stored in a **relational database**.
+Its purpose is to manage client orders for a warehouse, including product, client, and order management, with all data stored in a **PostgreSQL database**.
 
 ---
 
@@ -15,7 +15,7 @@ The application is designed using a **layered architecture** and provides a **ma
 * **Generate Bills**: Automatically generate an immutable **Bill** for each order and store it in the Log table.
 * **Reflection-Based Table Handling**: Dynamically generate table headers and populate table data using reflection.
 
-All application logic is separated into **model, business, data access, and presentation layers** for clean code and maintainability. Data is persisted in a relational database (e.g., MySQL), and generic CRUD operations use reflection for dynamic SQL generation.
+All application logic is separated into **model, business, data access, and presentation layers** for clean code and maintainability. Data is persisted in a **PostgreSQL database**, and generic CRUD operations use reflection for dynamic SQL generation.
 
 ---
 
@@ -38,7 +38,7 @@ All application logic is separated into **model, business, data access, and pres
 ### Back-End:
 
 * Java 17+
-* JDBC for MySQL database connectivity
+* JDBC for PostgreSQL database connectivity
 * Object-Oriented Programming
 * Reflection
 * Lambda expressions and Streams
@@ -49,9 +49,9 @@ All application logic is separated into **model, business, data access, and pres
 
 ### Tools:
 
-* IntelliJ IDEA (IDE)
-* Maven (dependency management)
-* MySQL Workbench (database management)
+* IntelliJ IDEA 
+* Maven 
+* pgAdmin or any PostgreSQL client 
 
 ---
 
@@ -61,7 +61,7 @@ All application logic is separated into **model, business, data access, and pres
 
 * Java 17 or newer
 * Maven
-* MySQL server and MySQL Workbench
+* PostgreSQL server and pgAdmin or any PostgreSQL client
 * IntelliJ IDEA or any Java IDE
 
 ## Steps:
